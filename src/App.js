@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Cards from './components/Cards'
 import Dashboard from './components/dashboard/Dashboard';
 import Courses from './components/courses/Courses';
+import Users from './components/users/Users';
+import ChangePassword from './components/channge_pass/ChangePassword';
 
 function App() {
   return (
@@ -17,8 +19,9 @@ function App() {
         <Route path='/' element={<Login/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/courses' element={<Courses/>}/>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/' element={<Login/>}/>
+        <Route path='/users' element={<Users/>}/>
+        <Route path='/change-password' element={<ChangePassword/>}/>
+        
       </Routes>
       <Footer/>
     </BrowserRouter>
