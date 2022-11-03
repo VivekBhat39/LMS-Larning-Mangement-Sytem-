@@ -8,11 +8,12 @@ import Dashboard from './components/dashboard/Dashboard';
 import Courses from './components/courses/Courses';
 import Users from './components/users/Users';
 import ChangePassword from './components/channge_pass/ChangePassword';
+import CourseTable from './components/courses/CourseTable';
 
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
+      {/* <BrowserRouter>
       <Header />
       <Routes>
 
@@ -24,7 +25,8 @@ function App() {
         
       </Routes>
       <Footer/>
-    </BrowserRouter>
+    </BrowserRouter> */}
+      <CourseTable />
     </div>
   );
 }
