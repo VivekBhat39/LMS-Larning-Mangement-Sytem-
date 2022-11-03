@@ -13,7 +13,7 @@ const Cards = () => {
               <Card.Body>
                 <Card.Title>Courses</Card.Title>
 
-                <Button variant="primary">Primary</Button>{' '}
+                <Button variant="primary">Count</Button>{' '}
               </Card.Body>
             </Card>
           </div>
@@ -23,7 +23,7 @@ const Cards = () => {
               <Card.Body>
                 <Card.Title>Courses</Card.Title>
 
-                <Button variant="primary">Primary</Button>{' '}
+                <Button variant="primary">Count</Button>{' '}
               </Card.Body>
             </Card>
           </div>
@@ -33,7 +33,7 @@ const Cards = () => {
               <Card.Body>
                 <Card.Title>Courses</Card.Title>
 
-                <Button variant="primary">Primary</Button>{' '}
+                <Button variant="primary">Count</Button>{' '}
               </Card.Body>
             </Card>
           </div>
