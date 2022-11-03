@@ -12,7 +12,6 @@ const Cards = () => {
             <Card style={{ width: '18rem' }}>
               <Card.Body>
                 <Card.Title>Courses</Card.Title>
-
                 <Button variant="primary">Count</Button>{' '}
               </Card.Body>
             </Card>
