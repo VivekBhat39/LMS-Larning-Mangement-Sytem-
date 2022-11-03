@@ -8,7 +8,7 @@ const Cards = () => {
     <>
       <div class="container">
         <div class="row">
-          <div col-4>
+          <div className='col-lg-4'>
             <Card style={{ width: '18rem' }}>
               <Card.Body>
                 <Card.Title>Courses</Card.Title>
@@ -18,7 +18,7 @@ const Cards = () => {
             </Card>
           </div>
 
-          <div col-4>
+          <div className='col-lg-4'>
             <Card style={{ width: '18rem' }}>
               <Card.Body>
                 <Card.Title>Courses</Card.Title>
@@ -28,7 +28,7 @@ const Cards = () => {
             </Card>
           </div>
 
-          <div col-4>
+          <div className='col-lg-4'>
             <Card style={{ width: '18rem' }}>
               <Card.Body>
                 <Card.Title>Courses</Card.Title>
