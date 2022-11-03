@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 const Cards = () => {
   return (
     <>
-      <div class="container">
+      <div class="container mt-3 mb-3">
         <div class="row">
           <div className='col-lg-4'>
             <Card style={{ width: '18rem' }}>
