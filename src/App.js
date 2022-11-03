@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -10,7 +11,11 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route />
+        <Route path='/' element={<Login/>}/>
+        <Route path='/' element={<Login/>}/>
+        <Route path='/' element={<Login/>}/>
+        <Route path='/' element={<Login/>}/>
+        <Route path='/' element={<Login/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
