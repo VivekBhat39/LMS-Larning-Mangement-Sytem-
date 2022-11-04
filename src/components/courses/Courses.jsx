@@ -3,8 +3,12 @@ import CourseTable from './CourseTable';
 
 const Courses = () => {
   return (
-    <div>
-      This is courses
+    <div>  
+      <div>
+        <button type="button" class="btn btn-primary ms-2 ">
+          Add
+        </button>
+      </div>
       <CourseTable/>
     </div>
   )

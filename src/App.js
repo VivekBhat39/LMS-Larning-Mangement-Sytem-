@@ -9,6 +9,7 @@ import Courses from './components/courses/Courses';
 import Users from './components/users/Users';
 import ChangePassword from './components/channge_pass/ChangePassword';
 import CourseTable from './components/courses/CourseTable';
+import AddCourse from './components/courses/AddCourse';
 
 function App() {
  
@@ -21,23 +22,20 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
+      <Header />
+      <Routes>
 
-
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path='/' element={<Login />} />
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/courses' element={<Courses />} />
-              <Route path='/users' element={<Users />} />
-              <Route path='/change-password' element={<ChangePassword />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-   
-
-
-      {/* <CourseTable/> */}
+        <Route path='/' element={<Login/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/courses' element={<Courses/>}/>
+        <Route path='/users' element={<Users/>}/>
+        <Route path='/change-password' element={<ChangePassword/>}/>
+        
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
+    {/* <CourseTable/> */}
     </div>
   );
 }
