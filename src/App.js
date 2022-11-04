@@ -9,6 +9,7 @@ import Courses from './components/courses/Courses';
 import Users from './components/users/Users';
 import ChangePassword from './components/channge_pass/ChangePassword';
 import CourseTable from './components/courses/CourseTable';
+import AddCourse from './components/courses/AddCourse';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Footer/>
     </BrowserRouter> */}
     <CourseTable/>
+    <AddCourse/>
     </div>
   );
 }
