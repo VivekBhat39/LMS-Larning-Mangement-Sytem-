@@ -29,13 +29,15 @@ function App() {
         <Route path='/' element={<Login/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/courses' element={<Courses/>}/>
+        <Route path='/courses/addcourse' element={<AddCourse/>}/>
         <Route path='/users' element={<Users/>}/>
         <Route path='/change-password' element={<ChangePassword/>}/>
         
       </Routes>
       <Footer/>
     </BrowserRouter>
-    {/* <CourseTable/> */}
+    {/* <CourseTable/>
+    <AddCourse/> */}
     </div>
   );
 }
