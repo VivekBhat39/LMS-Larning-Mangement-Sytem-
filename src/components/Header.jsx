@@ -9,11 +9,13 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 const Header = () => {
 
+  let trainername = localStorage.getItem("name");
+
 
 
 
 function submit(e){
-
+  localStorage.clear()
 }
 
 let path = useLocation();
@@ -24,8 +26,8 @@ if (path.pathname !== '/') {
     <div>
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand to="/dashboard">Trainer Name</Navbar.Brand>
-          <Nav className="me-auto">
+          <Navbar.Brand to="/dashboard" className='text-dark'>Welcome {trainername}</Navbar.Brand>
+          <Nav className="ms-auto">
             <LinkContainer to="/dashboard"><Nav.Link>Dashboard</Nav.Link></LinkContainer>
             <LinkContainer to="/courses"><Nav.Link>Courses</Nav.Link></LinkContainer>
             <LinkContainer to="/users"><Nav.Link>Users</Nav.Link></LinkContainer>
