@@ -35,6 +35,8 @@ const Login = () => {
     })
   }
 
+
+
   return (
     <div className="container" style={{ textAlign: "center" }}>
       <div className="row">
@@ -73,7 +75,7 @@ const Login = () => {
               />
             </div>
 
-            <button onClick={(e)=>{submit(e)}} class="btn btn-primary mt-5">
+            <button onClick={(e) => { submit(e) }} class="btn btn-primary mt-5">
               Login
             </button>
             <br />

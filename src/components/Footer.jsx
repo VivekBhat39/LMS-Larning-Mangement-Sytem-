@@ -8,10 +8,11 @@ const Footer = () => {
   if (path.pathname !== "/") {
     return (
       <div className="bg-dark bottom">
-        <h1 className="text-white">Welcome {trainername}</h1>
+        <h3 className="text-white">Welcome {trainername}</h3>
       </div>
     );
   } else {
+    <div> </div>
   }
 };
 

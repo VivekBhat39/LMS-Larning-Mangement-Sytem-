@@ -11,22 +11,33 @@ import ChangePassword from './components/channge_pass/ChangePassword';
 import CourseTable from './components/courses/CourseTable';
 
 function App() {
+ 
+
+  // let trainerLoggedIn = false;
+  // if (localStorage.getItem('usertype') != null) {
+  //   if (localStorage.getItem('usertype') === 'trainer')
+  //     trainerLoggedIn = true;
+  // }
+
   return (
     <div className="App">
-      {/* <BrowserRouter>
-      <Header />
-      <Routes>
 
-        <Route path='/' element={<Login/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/courses' element={<Courses/>}/>
-        <Route path='/users' element={<Users/>}/>
-        <Route path='/change-password' element={<ChangePassword/>}/>
-        
-      </Routes>
-      <Footer/>
-    </BrowserRouter> */}
-    <CourseTable/>
+
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Login />} />
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/courses' element={<Courses />} />
+              <Route path='/users' element={<Users />} />
+              <Route path='/change-password' element={<ChangePassword />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+   
+
+
+      {/* <CourseTable/> */}
     </div>
   );
 }
