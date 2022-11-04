@@ -25,7 +25,7 @@ const Login = () => {
       if (result.data.status === "success") {
         localStorage.setItem("usertype", "trainer");
         localStorage.setItem("name", result.data.data.name);
-        navigate("/dashboard");
+        window.location.href = "/dashboard";
       }
       else {
         alert("Invalid credentials");
@@ -35,7 +35,7 @@ const Login = () => {
     })
   }
 
-
+  
 
   return (
     <div className="container" style={{ textAlign: "center" }}>
