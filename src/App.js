@@ -14,11 +14,11 @@ import AddCourse from './components/courses/AddCourse';
 function App() {
  
 
-  // let trainerLoggedIn = false;
-  // if (localStorage.getItem('usertype') != null) {
-  //   if (localStorage.getItem('usertype') === 'trainer')
-  //     trainerLoggedIn = true;
-  // }
+  let trainerLoggedIn = false;
+  if (localStorage.getItem('usertype') != null) {
+    if (localStorage.getItem('usertype') === 'trainer')
+      trainerLoggedIn = true;
+  }
 
   return (
     <div className="App">
@@ -36,8 +36,6 @@ function App() {
       </Routes>
       <Footer/>
     </BrowserRouter>
-    {/* <CourseTable/>
-    <AddCourse/> */}
     </div>
   );
 }
