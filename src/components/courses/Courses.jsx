@@ -4,11 +4,13 @@ import CourseTable from './CourseTable';
 const Courses = () => {
   return (
     <div>  
-      <div>
-        <button type="button" class="btn btn-primary ms-2 ">
+
+       <div >
+        <button type="button" class="btn btn-lg btn-primary">
           Add
         </button>
       </div>
+
       <CourseTable/>
     </div>
   )

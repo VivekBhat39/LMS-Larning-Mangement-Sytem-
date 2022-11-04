@@ -27,7 +27,7 @@ function App() {
       </Routes>
       <Footer/>
     </BrowserRouter> */}
-    <CourseTable/>
+    <Courses/>
     <AddCourse/>
     </div>
   );
