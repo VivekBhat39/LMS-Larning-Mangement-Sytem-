@@ -4,14 +4,14 @@ export default function AddCourse() {
   return (
     <div className='Container-fluid'>
       <form>
-        <section className="vh-100" style={{ backgroundColor: "#2779e2" }}>
+        <section className="vh-100">
           <div className="container h-100">
-            <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="row d-flex justify-content-center align-items-center mt-3">
               <div className="col-xl-9">
 
-                <h1 className="text-white mb-4">Add Course</h1>
+                <h1 className="text-dark mb-3">Add Course</h1>
 
-                <div className="card" style={{ borderRadius: "15px" }}>
+                <div className="card border border-dark" style={{ borderRadius: "15px" }}>
                   <div className="card-body">
 
                     <div className="row align-items-center pt-4">
@@ -30,7 +30,7 @@ export default function AddCourse() {
                         <h6 className="mb-0">Description</h6>
                       </div>
                       <div className="col-md-9 pe-5">
-                        <textarea className="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
+                        <textarea className="form-control" rows="3" placeholder="Details about Course"></textarea>
                       </div>
                     </div>
 
@@ -43,7 +43,7 @@ export default function AddCourse() {
                       <div class="col-md-9 pe-5">
                         <input class="form-control form-control-lg" id="formFileLg" type="file" />
                         <div class="small text-muted mt-2">Upload your Course image or any other relevant file. Max file
-                          size 50 MB</div>
+                          size 5 MB</div>
                       </div>
                     </div>
 
