@@ -13,7 +13,7 @@ import CourseTable from './components/courses/CourseTable';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter>
       <Header />
       <Routes>
 
@@ -25,7 +25,8 @@ function App() {
         
       </Routes>
       <Footer/>
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <CourseTable/>
     </div>
   );
 }

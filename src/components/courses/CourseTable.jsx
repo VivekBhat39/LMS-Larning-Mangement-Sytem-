@@ -5,69 +5,48 @@ import axios from 'axios'
 
 function CourseTable() {
   
-  let [users, setUsers] = useState([]);
+  let [course, setCourse] = useState([]);
 
   useEffect(()=>{
-    axios.get("https://reqres.in/api/users").then(
+    axios.get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4").then(
       (response)=>{
         console.log(response.data)
-        setUsers(response.data.data);
+        setCourse(response.data.data);
       }
     )
   })
 
   return (
     <Container>
-      <Table className="Container fluid" striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </Table>
       <br />
       <Table striped bordered hover>
         <thead className='bg-primary'>
           <tr>
-            <th>No</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Avatar</th>
+            <th>Action</th>
+            <th>Sr.No.</th>
+            <th>Trainer Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>MRP</th>
+            <th>Price</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           {
-            users.map((user, i)=>{
+            course.map((course, i)=>{
               return(
                 <tr key={i}>
-                <td>{i + 1}</td>
-                <td>{user.first_name}</td>
-                <td>{user.last_name}</td>
-                <td>{user.email}</td>
-                <td>{user.avatar}</td>
+                  <td>{i + 1}</td>
+                  <td>{i + 1}</td>
+                  <td>{course.trainerid}</td>
+                  <td>{course.title}</td>
+                  <td>{course.description}</td>
+                  <td>{course.imagepath}</td>
+                  <td>{course.mrp}</td>
+                  <td>{course.price}</td>
+                  <td>{course.status}</td>
                 </tr>
               )
             })
