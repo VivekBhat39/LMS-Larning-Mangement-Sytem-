@@ -1,18 +1,33 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 export default function AddCourse() {
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [mrp, setMrp] = useState("");
-  const [price, setPrice] = useState("");
-  const [status, setStatus] = useState("");
+  const [data, setData] = useState({
+    title: "",
+    description: "",
+    mrp: "",
+    price: "",
+    status: ""
+  })
 
   function saveData(e) {
     e.preventDefault();
-    let data = { title, description, mrp, price };
     console.log(data);
+    axios.put("http://localhost:8081/trainer/course").then((res) => {
+      // console.log(res.data.data);
+      setData(res.data.data);
+    })
+  }
+  // useEffect(() => {
+  //   saveData();
+  // }, [])
 
+
+  function handleChange(e) {
+    const newData = { ...data };
+    newData[e.target.name] = e.target.value;
+    setData(newData);
   }
 
   return (
@@ -32,7 +47,7 @@ export default function AddCourse() {
                       <h6 className="mb-0">Title</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <input name="title" value={title} onChange={(e) => { setTitle(e.target.value) }} type="text" className="form-control form-control-lg" />
+                      <input name="title" value={data.title} onChange={(e) => { handleChange(e) }} type="text" className="form-control form-control-lg" />
                     </div>
                   </div>
 
@@ -43,7 +58,7 @@ export default function AddCourse() {
                       <h6 className="mb-0">Description</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <textarea name="description" value={description} onChange={(e) => { setDescription(e.target.value) }} className="form-control" rows="3" placeholder="Details about Course"></textarea>
+                      <textarea name="description" value={data.description} onChange={(e) => { handleChange(e) }} className="form-control" rows="3" placeholder="Details about Course"></textarea>
                     </div>
                   </div>
 
@@ -67,7 +82,7 @@ export default function AddCourse() {
                       <h6 className="mb-0">MRP</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <input name="mrp" value={mrp} onChange={(e) => { setMrp(e.target.value) }} type="text" className="form-control form-control-lg" />
+                      <input name="mrp" value={data.mrp} onChange={(e) => { handleChange(e) }} type="text" className="form-control form-control-lg" />
                     </div>
                   </div>
 
@@ -78,7 +93,7 @@ export default function AddCourse() {
                       <h6 className="mb-0">Price</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <input name="price" value={price} onChange={(e) => { setPrice(e.target.value) }} type="text" className="form-control form-control-lg" />
+                      <input name="price" value={data.price} onChange={(e) => { handleChange(e) }} type="text" className="form-control form-control-lg" />
                     </div>
                   </div>
 
@@ -89,7 +104,7 @@ export default function AddCourse() {
                       <h6 className="mb-0">Status</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <input name="price" value={status} onChange={(e) => { setStatus(e.target.value) }} type="text" className="form-control form-control-lg" />
+                      <input name="status" value={data.status} onChange={(e) => { handleChange(e) }} type="text" className="form-control form-control-lg" />
                     </div>
                   </div>
 

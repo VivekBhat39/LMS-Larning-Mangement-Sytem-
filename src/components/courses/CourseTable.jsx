@@ -7,8 +7,7 @@ function CourseTable() {
   let [course, setCourse] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
+    axios.get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
       .then((response) => {
         console.log(response.data);
         setCourse(response.data.data);
