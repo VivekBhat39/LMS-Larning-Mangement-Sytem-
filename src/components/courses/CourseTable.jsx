@@ -5,9 +5,9 @@ import axios from "axios";
 
 function CourseTable() {
   let [course, setCourse] = useState([]);
-
+  let trainerid = localStorage.getItem("trainerid");
   useEffect(() => {
-    axios.get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
+    axios.get(`http://localhost:8081/trainer/course/${trainerid}`)
       .then((response) => {
         console.log(response.data);
         setCourse(response.data.data);

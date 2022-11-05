@@ -25,6 +25,7 @@ const Login = () => {
       if (result.data.status === "success") {
         localStorage.setItem("usertype", "trainer");
         localStorage.setItem("name", result.data.data.name);
+        localStorage.setItem("trainerid", result.data.data._id);
         window.location.href = "/dashboard";
       }
       else {
