@@ -5,14 +5,29 @@ import axios from "axios";
 import {Link} from 'react-router-dom'
 function CourseTable() {
   let [course, setCourse] = useState([]);
-  let trainerid = localStorage.getItem("trainerid");
+
   useEffect(() => {
-    axios.get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
+
+    load();
+  }, []);
+
+  function load(){
+    axios .get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
       .then((response) => {
         console.log(response.data);
         setCourse(response.data.data);
       });
-  });
+  }
+
+  function deleteCourse(e, _id) {
+    e.preventDefault();
+    axios.delete('http://localhost:8081/trainer/course/' + _id)
+      .then((res) => {
+        load();
+      });
+  }
+
+
 
   return (
     <div className="container-fluid">
