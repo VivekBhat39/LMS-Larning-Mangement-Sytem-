@@ -4,29 +4,29 @@ import CourseTable from './CourseTable';
 
 const Courses = () => {
   return (
-    <div>  
+    <div>
 
-       {/* <div >
+      {/* <div >
         <button type="button" class="btn btn-lg btn-primary">
           Add
         </button>
       </div> */}
 
-       <div className="container mt-5">
+      <div className="container mt-5">
         <div className="row">
-          <div className="col-lg-6">
+          <div className="col-lg-10">
 
           </div>
-          <div className="col-lg-6">
-            
-        <Link to="/courses/addcourse"><button type="button" class="btn btn-lg btn-primary">
-           Add course
-        </button></Link>
+          <div className="col-lg-2">
+
+            <Link to="/courses/addcourse"><button type="button" class="btn btn-primary">
+              Add course
+            </button></Link>
           </div>
         </div>
-       </div> 
+      </div>
 
-      <CourseTable/>
+      <CourseTable />
     </div>
   )
 }
