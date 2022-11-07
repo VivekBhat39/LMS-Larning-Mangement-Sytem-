@@ -7,12 +7,25 @@ function CourseTable() {
   let [course, setCourse] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
+    load();
+  }, []);
+
+  function load(){
+    axios
+      .get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
       .then((response) => {
         console.log(response.data);
         setCourse(response.data.data);
       });
-  });
+  }
+
+  function deleteCourse(e, _id) {
+    e.preventDefault();
+    axios.delete('http://localhost:8081/trainer/course/' + _id)
+      .then((res) => {
+        load();
+      });
+  }
 
   return (
     <Container>
@@ -42,7 +55,11 @@ function CourseTable() {
                   </button>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-primary">
+                  <button
+                    onClick={(e) => deleteCourse(e, course._id)}
+                    type="button"
+                    class="btn btn-primary"
+                  >
                     <i class="fa-solid fa-trash"></i>
                   </button>
                 </td>
