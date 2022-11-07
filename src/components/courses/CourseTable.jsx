@@ -2,37 +2,81 @@ import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { Button, Modal } from "bootstrap";
 function CourseTable() {
   let [course, setCourse] = useState([]);
 
-  useEffect(() => {
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
     load();
   }, []);
 
-  function load(){
-    axios .get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
+  function load() {
+    axios
+      .get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
       .then((response) => {
         console.log(response.data);
         setCourse(response.data.data);
       });
   }
 
+  // function deleteCourse(e, _id) {
+  //   e.preventDefault();
+  //   axios.delete("http://localhost:8081/trainer/course/" + _id).then((res) => {
+  //     load();
+  //   });
+  // }
   function deleteCourse(e, _id) {
     e.preventDefault();
-    axios.delete('http://localhost:8081/trainer/course/' + _id)
+    axios
+      .delete(`http://localhost:8081/trainer/course/`, { data: { id: _id } })
       .then((res) => {
         load();
       });
   }
 
-
+  function button() {
+    // <div className="modal" tabindex="-1">
+    //   <div className="modal-dialog">
+    //     <div className="modal-content">
+    //       <div className="modal-header">
+    //         <h5 className="modal-title">Modal title</h5>
+    //         <button
+    //           type="button"
+    //           className="btn-close"
+    //           data-bs-dismiss="modal"
+    //           aria-label="Close"
+    //         ></button>
+    //       </div>
+    //       <div className="modal-body">
+    //         <p>Modal body text goes here.</p>
+    //       </div>
+    //       <div className="modal-footer">
+    //         <button
+    //           type="button"
+    //           className="btn btn-secondary"
+    //           data-bs-dismiss="modal"
+    //         >
+    //           Close
+    //         </button>
+    //         <button type="button" className="btn btn-primary">
+    //           Save changes
+    //         </button>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>;
+  }
 
   return (
     <div className="container-fluid">
       <br />
-      <table className="table table-striped  table-responsive" >
+      <table className="table table-striped  table-responsive">
         <thead className="bg-primary">
           <tr>
             <th>Sr.No.</th>
@@ -60,9 +104,11 @@ function CourseTable() {
                 </td>
                 <td>
                   <button
-                    onClick={(e) => deleteCourse(e, course._id)}
+                    // onClick={(e) => deleteCourse(e, course._id)}
                     type="button"
                     class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
                   >
                     <i class="fa-solid fa-trash"></i>
                   </button>
@@ -74,23 +120,100 @@ function CourseTable() {
                 <td>{course.price}</td>
                 <td>{course.status}</td>
                 <td>
-                  <Link to='/courses/section' type="button" class="btn btn-primary">
-                  Sections
+                  <Link
+                    to="/courses/section"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Sections
                   </Link>
                 </td>
-                <td><Link to='/courses/viewcourse' type="button" class="btn btn-primary">
-                  View
-                  </Link></td>
-                <td><Link to='/courses/users' type="button" class="btn btn-primary">
-                  Users
-                  </Link></td>
+                <td>
+                  <Link
+                    to="/courses/viewcourse"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    View
+                  </Link>
+                </td>
+                <td>
+                  <Link
+                    to="/courses/users"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Users
+                  </Link>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      </div>
+      {/* <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button> */}
+      {/* <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal> */}
+      
 
+      {/* <!-- Modal --> */}
+      {course.map((course) => {
+        return (
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Confirm Delete
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <h5>Do You want confirm Delete</h5>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
+                  <button onClick={(e) => deleteCourse(e, course._id)} type="button" data-bs-dismiss="modal" class="btn btn-primary">
+                    Yes, Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
