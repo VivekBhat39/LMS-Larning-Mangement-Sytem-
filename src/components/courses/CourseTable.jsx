@@ -68,7 +68,7 @@ function CourseTable() {
                     type="button"
                     class="btn btn-primary"
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
+                    data-bs-target={"#exampleModal" + course._id}
                   >
                     <i class="fa-solid fa-trash"></i>
                   </button>
@@ -113,19 +113,20 @@ function CourseTable() {
       </table>
 
       {/* <!-- Modal --> */}
-      {course.map((course) => {
+      {course.map((c) => {
         return (
           <div
             class="modal fade"
-            id="exampleModal"
+            id={"exampleModal" + c._id}
             tabindex="-1"
-            aria-labelledby="exampleModalLabel"
+            aria-labelledby={ c._id }
             aria-hidden="true"
+            key={c._id}
           >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
+                  <h5 class="modal-title" id={ c._id }>
                     Confirm Delete
                   </h5>
                   <button
@@ -136,7 +137,7 @@ function CourseTable() {
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <h5>Do You want confirm Delete</h5>
+                  <h5>Do You want confirm Delete {c.title}</h5>
                 </div>
                 <div class="modal-footer">
                   <button
@@ -146,7 +147,7 @@ function CourseTable() {
                   >
                     Cancel
                   </button>
-                  <button onClick={(e) => deleteCourse(e, course._id)} type="button" data-bs-dismiss="modal" class="btn btn-primary">
+                  <button onClick={(e) => deleteCourse(e, c._id)} type="button" data-bs-dismiss="modal" class="btn btn-primary">
                     Yes, Delete
                   </button>
                 </div>

@@ -29,15 +29,15 @@ export default function AddCourse() {
       alert("All fields are mandatory")
     } else {
 
-      alert("Submited Sucessfully")
-      // console.log(data);
+    //   alert("Submited Sucessfully")
+      console.log(data);
       axios.put("http://localhost:8081/trainer/course", data)
         .then((res) => {
           console.log(res.data);
           // setData(res.data.data);
         });
-    }
-    // navigate("/courses")
+     }
+     navigate("/courses")
   }
 
   // useEffect(() => {
