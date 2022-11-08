@@ -2,12 +2,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom';
 
-export default function AddCourse() {
+export default function EditCourse() {
 
   let navigate = useNavigate()
+  
+  let trainerId = localStorage.getItem("trainerid")
 
   const [data, setData] = useState({
-    trainerid: "6364ab916d947aeffe2204b4",
+    trainerid: trainerId,
     title: "",
     description: "",
     image: "",
@@ -16,29 +18,31 @@ export default function AddCourse() {
     status: ""
   })
 
-  function handleChange(e) {
-    // const newData = { ...data };
-    // newData[e.target.name] = e.target.value;
-    // setData(newData);
-    setData({ ...data, [e.target.name]: e.target.value })
-  }
 
-  function saveData(e) {
-    e.preventDefault();
-    if (!data.title || !data.description || !data.mrp || !data.price || !data.status) {
-      alert("All fields are mandatory")
-    } else {
+  const [course, setCourse] = useState([])
 
-      //   alert("Submited Sucessfully")
-      // console.log(data);
-      axios.put("http://localhost:8081/trainer/course", data)
-        .then((res) => {
-          console.log(res.data);
-          // setData(res.data.data);
-        });
-    }
-    navigate("/courses")
-  }
+  axios.get(`http://localhost:8081/trainer/course/${trainerId}`)
+      .then((response) => {
+        console.log(response.data);
+        setCourse(response.data.data)
+      });
+
+//   function saveData(e) {
+//     e.preventDefault();
+//     if (!data.title || !data.description || !data.mrp || !data.price || !data.status) {
+//       alert("All fields are mandatory")
+//     } else {
+
+//       //   alert("Submited Sucessfully")
+//       // console.log(data);
+//       axios.put("http://localhost:8081/trainer/course", data)
+//         .then((res) => {
+//           console.log(res.data);
+//           // setData(res.data.data);
+//         });
+//     }
+//     navigate("/courses")
+//   }
 
   // useEffect(() => {
   //   saveData();

@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Button } from "bootstrap";
 function CourseTable() {
-  let [course, setCourse] = useState([])
-  
+  let [course, setCourse] = useState([]);
+
   useEffect(() => {
     load();
   }, []);
@@ -18,12 +18,6 @@ function CourseTable() {
       });
   }
 
-  // function deleteCourse(e, _id) {
-  //   e.preventDefault();
-  //   axios.delete("http://localhost:8081/trainer/course/" + _id).then((res) => {
-  //     load();
-  //   });
-  // }
   function deleteCourse(e, _id) {
     e.preventDefault();
     axios
@@ -58,9 +52,11 @@ function CourseTable() {
               <tr key={i}>
                 <td class="font-weight-bold">{i + 1}</td>
                 <td>
-                  <button type="button" class="btn btn-primary">
-                    <i class="fa-sharp fa-solid fa-pen"></i>
-                  </button>
+                  <Link to="/courses/addcourse">
+                    <button type="button" class="btn btn-primary">
+                      <i class="fa-sharp fa-solid fa-pen"></i>
+                    </button>
+                  </Link>
                 </td>
                 <td>
                   <button
@@ -119,14 +115,14 @@ function CourseTable() {
             class="modal fade"
             id={"exampleModal" + c._id}
             tabindex="-1"
-            aria-labelledby={ c._id }
+            aria-labelledby={c._id}
             aria-hidden="true"
             key={c._id}
           >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id={ c._id }>
+                  <h5 class="modal-title" id={c._id}>
                     Confirm Delete
                   </h5>
                   <button
@@ -147,7 +143,12 @@ function CourseTable() {
                   >
                     Cancel
                   </button>
-                  <button onClick={(e) => deleteCourse(e, c._id)} type="button" data-bs-dismiss="modal" class="btn btn-primary">
+                  <button
+                    onClick={(e) => deleteCourse(e, c._id)}
+                    type="button"
+                    data-bs-dismiss="modal"
+                    class="btn btn-primary"
+                  >
                     Yes, Delete
                   </button>
                 </div>
