@@ -5,10 +5,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 export default function AddCourse() {
 
   let navigate = useNavigate()
-  let trainerId = localStorage.getItem("trainerid")
-  
+
   const [data, setData] = useState({
-    trainerid: trainerId,
+    trainerid: "6364ab916d947aeffe2204b4",
     title: "",
     description: "",
     image: "",
