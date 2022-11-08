@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "bootstrap";
 function CourseTable() {
   let [course, setCourse] = useState([]);
+  let trainerId = localStorage.getItem("trainerid")
 
   useEffect(() => {
     load();
@@ -11,7 +12,7 @@ function CourseTable() {
 
   function load() {
     axios
-      .get("http://localhost:8081/trainer/course/6364ab916d947aeffe2204b4")
+      .get(`http://localhost:8081/trainer/course/${trainerId}`)
       .then((response) => {
         console.log(response.data);
         setCourse(response.data.data);
@@ -52,7 +53,7 @@ function CourseTable() {
               <tr key={i}>
                 <td class="font-weight-bold">{i + 1}</td>
                 <td>
-                  <Link to="/courses/addcourse">
+                  <Link to="/courses/EditCourse">
                     <button type="button" class="btn btn-primary">
                       <i class="fa-sharp fa-solid fa-pen"></i>
                     </button>
