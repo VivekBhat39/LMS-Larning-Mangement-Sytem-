@@ -1,13 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function AddCourse() {
 
-  let navigate = useNavigate()
-  let trainerId = localStorage.getItem("trainerid")
-  
+  let navigate = useNavigate();
+  let {id} = useParams();
+  let trainerId = localStorage.getItem("trainerid");
   const [data, setData] = useState({
+    id:"",
     trainerid: trainerId,
     title: "",
     description: "",
@@ -16,6 +18,15 @@ export default function AddCourse() {
     price: "",
     status: ""
   })
+  
+  useEffect(()=>{
+    if(id != undefined){
+      axios.get("http://localhost:8081/trainer/course/" + trainerId + "/" + id)
+      .then((res) => {
+        setData(res.data.data);
+      });
+    }
+  }, []);
 
   function handleChange(e) {
     // const newData = { ...data };
@@ -27,19 +38,29 @@ export default function AddCourse() {
   function saveData(e) {
     e.preventDefault();
     if (!data.title || !data.description || !data.mrp || !data.price || !data.status) {
-      alert("All fields are mandatory")
+      alert("All fields are mandatory");
     } else {
 
       //   alert("Submited Sucessfully")
       // console.log(data);
-      axios.put("http://localhost:8081/trainer/course", data)
+      if(id == undefined){
+        axios.put("http://localhost:8081/trainer/course", data)
         .then((res) => {
           console.log(res.data);
-          // setData(res.data.data);
+          navigate("/courses")
         });
-    }
-    navigate("/courses")
+      }
+      else{
+        // setData({ ...data, id: id })
+        console.log(data);
+        axios.post("http://localhost:8081/trainer/course", data)
+        .then((res) => {
+          console.log(res.data);
+          navigate("/courses")
+        });
+      }
   }
+}
 
   // useEffect(() => {
   //   saveData();

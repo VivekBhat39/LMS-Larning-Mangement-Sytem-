@@ -53,7 +53,7 @@ function CourseTable() {
               <tr key={i}>
                 <td class="font-weight-bold">{i + 1}</td>
                 <td>
-                  <Link to="/courses/EditCourse">
+                  <Link to={ "/courses/editcourse/" + course._id }>
                     <button type="button" class="btn btn-primary">
                       <i class="fa-sharp fa-solid fa-pen"></i>
                     </button>

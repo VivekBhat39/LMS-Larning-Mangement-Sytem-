@@ -27,6 +27,7 @@ function App() {
           <Route path='/dashboard' element={<GuardedRoute Component={Dashboard} auth={trainerLoggedIn} />} />
           <Route path='/courses' element={<GuardedRoute Component={Courses} auth={trainerLoggedIn} />} />
           <Route path='/courses/addcourse' element={<GuardedRoute Component={AddCourse} auth={trainerLoggedIn} />} />
+          <Route path='/courses/editcourse/:id' element={<GuardedRoute Component={AddCourse} auth={trainerLoggedIn} />} />
           <Route path='/courses/section' element={<GuardedRoute Component={CourseSection} auth={trainerLoggedIn} />} />
           <Route path='/courses/viewcourse' element={<GuardedRoute Component={CourseView} auth={trainerLoggedIn} />} />
           <Route path='/courses/users' element={<GuardedRoute Component={CourseUsers} auth={trainerLoggedIn} />} />
