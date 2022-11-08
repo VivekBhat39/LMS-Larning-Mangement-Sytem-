@@ -29,15 +29,15 @@ export default function AddCourse() {
       alert("All fields are mandatory")
     } else {
 
-    //   alert("Submited Sucessfully")
-      console.log(data);
+      //   alert("Submited Sucessfully")
+      // console.log(data);
       axios.put("http://localhost:8081/trainer/course", data)
         .then((res) => {
           console.log(res.data);
           // setData(res.data.data);
         });
-     }
-     navigate("/courses")
+    }
+    navigate("/courses")
   }
 
   // useEffect(() => {
@@ -97,7 +97,7 @@ export default function AddCourse() {
                       <h6 className="mb-0">MRP</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <input name="mrp" value={data.mrp} onChange={ handleChange} type="text" className="form-control form-control-lg" />
+                      <input name="mrp" value={data.mrp} onChange={handleChange} type="number" className="form-control form-control-lg" />
                     </div>
                   </div>
 
@@ -108,7 +108,7 @@ export default function AddCourse() {
                       <h6 className="mb-0">Price</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <input name="price" value={data.price} onChange={(e) => handleChange(e)} type="text" className="form-control form-control-lg" />
+                      <input name="price" value={data.price} onChange={(e) => handleChange(e)} type="number" className="form-control form-control-lg" />
                     </div>
                   </div>
 
@@ -119,7 +119,12 @@ export default function AddCourse() {
                       <h6 className="mb-0">Status</h6>
                     </div>
                     <div className="col-md-9 pe-5">
-                      <input name="status" value={data.status} onChange={(e) => handleChange(e)} type="text" className="form-control form-control-lg" />
+
+                      <select name="status" value={data.status} onChange={(e) => handleChange(e)} class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
                     </div>
                   </div>
 
