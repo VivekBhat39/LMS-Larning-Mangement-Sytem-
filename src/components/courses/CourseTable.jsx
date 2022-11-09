@@ -96,7 +96,7 @@ function CourseTable() {
                 </td>
                 <td>
                   <Link
-                    to="/courses/users"
+                    to="/courses/courseusers"
                     type="button"
                     class="btn btn-primary"
                   >

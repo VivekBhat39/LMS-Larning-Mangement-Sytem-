@@ -30,7 +30,7 @@ function App() {
           <Route path='/courses/editcourse/:id' element={<GuardedRoute Component={AddCourse} auth={trainerLoggedIn} />} />
           <Route path='/courses/section' element={<GuardedRoute Component={CourseSection} auth={trainerLoggedIn} />} />
           <Route path='/courses/viewcourse' element={<GuardedRoute Component={CourseView} auth={trainerLoggedIn} />} />
-          <Route path='/courses/users' element={<GuardedRoute Component={CourseUsers} auth={trainerLoggedIn} />} />
+          <Route path='/courses/courseusers' element={<GuardedRoute Component={CourseUsers} auth={trainerLoggedIn} />} />
           <Route path='/users' element={<GuardedRoute Component={Users} auth={trainerLoggedIn} />} />
           <Route path='/change-password' element={<GuardedRoute Component={ChangePassword} auth={trainerLoggedIn} />} />
         </Routes>
